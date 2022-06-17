@@ -1,4 +1,4 @@
-# = Class: uchiwa::repo::yum
+_# = Class: uchiwa::repo::yum
 #
 # Adds the uchiwa YUM repo support
 #
@@ -19,12 +19,13 @@ class uchiwa::repo::yum {
     }
 
     yumrepo { 'uchiwa':
-      enabled  => 1,
-      baseurl  => $url,
-      gpgcheck => 0,
-      name     => 'uchiwa',
-      descr    => 'sensuapp.org uchiwa repo',
-      before   => Package['uchiwa'],
+      enabled    => 1,
+      baseurl    => $url,
+      gpgcheck   => 0,
+      name       => 'uchiwa',
+      s3_enabled => 1,
+      descr      => 'sensuapp.org uchiwa repo',
+      before     => Package['uchiwa'],
     }
   }
 
